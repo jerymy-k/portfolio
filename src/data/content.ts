@@ -147,7 +147,7 @@ const fr: Content = {
   },
   hero: {
     role: 'Développeur Full Stack & IA',
-    location: 'Safi, Maroc',
+    location: 'Agadir, Maroc',
     intro:
       "Je conçois des applications web complètes et des pipelines de Machine Learning, de la donnée brute jusqu'à l'interface.",
     availability: "À la recherche d'un stage en développement Full Stack ou en IA",
@@ -160,7 +160,7 @@ const fr: Content = {
     lead: "Étudiant en deuxième année à YouCode (UM6P), je me spécialise en développement IA après une première année consacrée au web Full Stack.",
     body: "J'aime mener un projet jusqu'au bout\u00a0: nettoyer les données, entraîner et comparer des modèles, puis les exposer dans une API et une interface que quelqu'un peut vraiment utiliser. À l'été 2026, j'ai passé deux mois en stage chez JNF Production sur Wijha.ma, une plateforme touristique en Next.js et Laravel.",
     facts: [
-      { label: 'Ville', value: 'Safi, Maroc' },
+      { label: 'Ville', value: 'Agadir, Maroc' },
       { label: 'Formation', value: 'YouCode – UM6P, 2e année, spécialisation Dev-AI' },
       { label: 'Recherche', value: 'Stage en développement Full Stack ou en IA' },
       { label: 'Langues', value: 'Tamazight, arabe, français, anglais' },
@@ -405,9 +405,9 @@ const en: Content = {
   },
   hero: {
     role: 'Full-Stack & AI Developer',
-    location: 'Safi, Morocco',
+    location: 'Agadir, Morocco',
     intro: 'I build complete web applications and machine learning pipelines, from raw data to the interface.',
-    availability: 'Looking for an internship in full-stack or AI development',
+    availability: 'Looking for an job in full-stack or AI development',
     seeProjects: 'See the projects',
     downloadCv: 'Download CV',
     portraitAlt: 'Portrait of Mohamed Elkerymy',
@@ -417,9 +417,9 @@ const en: Content = {
     lead: 'I am a second-year student at YouCode (UM6P), specialising in AI development after a first year spent on full-stack web development.',
     body: 'I like taking a project all the way: cleaning the data, training and comparing models, then putting them behind an API and an interface that someone can actually use. In summer 2026 I spent two months as an intern at JNF Production on Wijha.ma, a tourism platform built with Next.js and Laravel.',
     facts: [
-      { label: 'City', value: 'Safi, Morocco' },
+      { label: 'City', value: 'Agadir, Morocco' },
       { label: 'Education', value: 'YouCode – UM6P, 2nd year, Dev-AI track' },
-      { label: 'Looking for', value: 'An internship in full-stack or AI development' },
+      { label: 'Looking for', value: 'An job in full-stack or AI development' },
       { label: 'Languages', value: 'Tamazight, Arabic, French, English' },
     ],
   },
@@ -637,7 +637,7 @@ const en: Content = {
     ],
   },
   contact: {
-    title: ['Have an internship to offer?', 'Write to me.'],
+    title: ['Have an job to offer?', 'Write to me.'],
     body: 'Email is the easiest way to reach me. My CV is up to date and fits on one page.',
     emailLabel: 'Send an email',
     cv: 'Download the CV (PDF)',
