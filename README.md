@@ -37,6 +37,9 @@ npm run lint
 ```
 public/
   Mohamed_Elkerymy_CV.pdf   the CV offered for download
+  CNAME, og.jpg             custom domain and the image shown when the link is shared
+scripts/
+  deploy.mjs                publishes the built site to GitHub Pages
 src/
   data/content.ts           all the text (French and English), projects, links
   components/               one file per section of the page
@@ -52,5 +55,24 @@ To replace the CV, overwrite `public/Mohamed_Elkerymy_CV.pdf` with the new file.
 
 ## Deploying
 
-`npm run build` produces a `dist/` folder that works on any static host (GitHub Pages, Netlify, Vercel).
-The Vite `base` is relative, so the site also works from a sub-folder such as `username.github.io/portfolio/`.
+The site is published with GitHub Pages at **https://elkerymy.me**, from the `main` branch of
+[`jerymy-k/jerymy-k.github.io`](https://github.com/jerymy-k/jerymy-k.github.io).
+
+After pushing your changes to this repository, publish them with:
+
+```bash
+npm run deploy
+```
+
+The script (`scripts/deploy.mjs`) builds the site, replaces the content of the Pages repository with
+`dist/` and pushes one commit. `npm run deploy -- --dry-run` does everything except the push.
+
+The domain needs these DNS records at the registrar:
+
+| Type  | Host | Value              |
+| ----- | ---- | ------------------ |
+| A     | @    | 185.199.108.153    |
+| A     | @    | 185.199.109.153    |
+| A     | @    | 185.199.110.153    |
+| A     | @    | 185.199.111.153    |
+| CNAME | www  | jerymy-k.github.io |
