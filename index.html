@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mohamed Elkerymy — Développeur Full Stack &amp; IA</title>
+    <meta
+      name="description"
+      content="Portfolio de Mohamed Elkerymy, développeur Full Stack & IA à Safi : applications web en React, Next.js et Laravel, projets de Machine Learning et de data engineering en Python."
+    />
+    <meta name="author" content="Mohamed Elkerymy" />
+    <meta name="theme-color" content="#04322C" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Mohamed Elkerymy — Développeur Full Stack & IA" />
+    <meta
+      property="og:description"
+      content="Applications web complètes et pipelines de Machine Learning, de la donnée brute jusqu'à l'interface."
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <script>
+      // Apply the saved theme and language before first paint (no flash).
+      ;(function () {
+        try {
+          var root = document.documentElement
+          var theme = localStorage.getItem('theme')
+          if (theme !== 'light' && theme !== 'dark') {
+            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+          }
+          root.dataset.theme = theme
+          var lang = localStorage.getItem('lang')
+          if (lang !== 'fr' && lang !== 'en') {
+            lang = (navigator.language || 'fr').toLowerCase().indexOf('fr') === 0 ? 'fr' : 'en'
+          }
+          root.lang = lang
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light'
+        }
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,202 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/archivo/wdth.css';
+@import '@fontsource-variable/jetbrains-mono';
+
+/* ------------------------------------------------------------------
+   Design tokens
+   The palette comes from the portrait: its deep green panelled backdrop
+   (pine), a warm off-white for text on it (sand) and one warm signal
+   colour (saffron). Light and dark themes only change the neutrals.
+------------------------------------------------------------------- */
+@theme {
+  --font-sans: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SFMono-Regular', monospace;
+
+  --color-pine-950: #021f1b;
+  --color-pine-900: #04322c;
+  --color-pine-800: #073d35;
+  --color-pine-700: #0b4a3f;
+  --color-pine-500: #1f7a66;
+  --color-mint: #8fe0cb;
+  --color-sand: #f1ebdd;
+  --color-saffron: #efae3c;
+
+  --color-bg: var(--bg);
+  --color-soft: var(--bg-soft);
+  --color-ink: var(--ink);
+  --color-muted: var(--ink-soft);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-on-brand: var(--on-brand);
+
+  --breakpoint-xs: 26rem;
+}
+
+:root {
+  --bg: #ffffff;
+  --bg-soft: #eef4f1;
+  --ink: #0f1f1a;
+  --ink-soft: #4a5b54;
+  --line: #d3deda;
+  --brand: #0b4a3f;
+  --on-brand: #f1ebdd;
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --bg: #061613;
+  --bg-soft: #0a211d;
+  --ink: #e9f0ec;
+  --ink-soft: #9fb2aa;
+  --line: #1b3731;
+  --brand: #8fe0cb;
+  --on-brand: #04322c;
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    font-stretch: 100%;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-saffron);
+    color: var(--color-pine-950);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-saffron);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  input[type='range'] {
+    accent-color: var(--brand);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------
+   Type roles (Archivo has a width axis: headings use its condensed end)
+------------------------------------------------------------------- */
+@utility display {
+  font-stretch: 62%;
+  font-weight: 800;
+  line-height: 0.86;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+}
+
+@utility heading {
+  font-stretch: 70%;
+  font-weight: 750;
+  line-height: 1;
+  letter-spacing: -0.005em;
+}
+
+@utility subheading {
+  font-stretch: 82%;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* ------------------------------------------------------------------
+   Fluted wall: continues the panelled backdrop of the portrait
+------------------------------------------------------------------- */
+.flutes {
+  --flute: clamp(84px, 9.5vw, 148px);
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      180deg,
+      rgb(2 31 27 / 0.6),
+      rgb(2 31 27 / 0) 28%,
+      rgb(2 31 27 / 0) 68%,
+      rgb(2 31 27 / 0.7)
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgb(0 0 0 / 0.36) 0,
+      rgb(0 0 0 / 0) 14px,
+      rgb(255 255 255 / 0.04) calc(var(--flute) / 2),
+      rgb(0 0 0 / 0) calc(var(--flute) - 14px),
+      rgb(0 0 0 / 0.36) var(--flute)
+    ),
+    var(--color-pine-900);
+}
+
+/* The photo's own backdrop melts into the wall on both sides. */
+.portrait {
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0, #000 24%, #000 76%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 16%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0, #000 24%, #000 76%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 16%);
+  mask-composite: intersect;
+}
+
+/* ------------------------------------------------------------------
+   One orchestrated moment: the name rises on first load
+------------------------------------------------------------------- */
+.rise {
+  display: block;
+  /* Clip only above and below, so wide letters are never cut on the sides. */
+  clip-path: inset(0 -100vw);
+  padding-top: 0.04em;
+}
+
+.rise > span {
+  display: block;
+  transform: translateY(104%);
+  animation: rise 0.95s cubic-bezier(0.2, 0.7, 0.1, 1) forwards;
+  animation-delay: var(--delay, 0ms);
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fade-in 0.9s ease forwards;
+  animation-delay: var(--delay, 0ms);
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise > span,
+  .fade-in {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
+}
